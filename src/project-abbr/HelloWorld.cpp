@@ -1,5 +1,4 @@
 #include <project-abbr/HelloWorld.hpp>
-#include <random>
 
 HelloWorld::HelloWorld() :
     hello_{ "Hello" },
