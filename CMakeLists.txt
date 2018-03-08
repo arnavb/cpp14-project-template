@@ -16,6 +16,13 @@ configure_file(
     "${PROJECT_BINARY_DIR}/config.h"
 )
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
+
 include_directories(include)
 include_directories(${PROJECT_BINARY_DIR})
+
 add_subdirectory(src/project-abbr)
+
+include(CTest)
+enable_testing()
+add_subdirectory(tests)
