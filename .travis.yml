@@ -11,8 +11,9 @@ addons:
             - g++-7
             - gcc-7
             - cmake
-
-script:
+before_script:
     - export CC=gcc-7
     - export CXX=g++-7
-    - ./scripts/run_build.sh
+    - chmod +x ./scripts/run_build.sh
+
+script: ./scripts/run_build.sh
