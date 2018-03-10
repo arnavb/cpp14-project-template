@@ -11,8 +11,8 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - g++-7
-            - gcc-7
+            - g++-5
+            - gcc-5
             - cmake
       env:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
@@ -20,7 +20,7 @@ matrix:
       osx_image: xcode9.2 
       compiler: clang
       env:
-        - MATRIX_EVAL="brew cask uninstall oclint && brew install llvm && CC=clang && CXX=clang++"
+        - MATRIX_EVAL=""
 
 before_install:
   - eval "${MATRIX_EVAL}"
