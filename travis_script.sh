@@ -44,6 +44,8 @@ if [ $? -ne 0 ]; then # Check the exit code from ctest
     exit 1
 fi
 
+echo -e ""
+
 sudo make install # Install the executable and its dependencies
 
 if [ $? -ne 0 ]; then # Check the error code from make install
