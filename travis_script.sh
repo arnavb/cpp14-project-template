@@ -5,9 +5,9 @@
 # chmod +x run_build.sh
 # ./run_build.sh
 
-RED="\033[0;31m" # Red
-GREEN="\033[0;32m" # Green
-CYAN="\033[0;36m" # Blue
+RED="\033[31;1m" # Red
+GREEN="\033[32;1m" # Green
+CYAN="\033[36;1m" # Blue
 CL="\033[0m" # Closing
 
 print_color() { # Utility function to print colored text
@@ -19,7 +19,11 @@ if ! [ -x $(command -v cmake) ]; then # Make sure CMake exists
     exit 1
 fi
 
-print_color $CYAN "Building project...\n"
+print_color $CYAN "Project: cpp-project-template\n"
+print_color $CYAN "This script will: "
+print_color $CYAN "1. Build all targets using cmake and make"
+print_color $CYAN "2. Run tests using make test"
+print_color $CYAN "3. Install executables and libraries using make install\n"
 
 mkdir -p build
 cd build
@@ -40,4 +44,11 @@ if [ $? -ne 0 ]; then # Check the exit code from ctest
     exit 1
 fi
 
-print_color $GREEN "\nSuccess: Project completely built and all tests passed."
+sudo make install # Install the executable and its dependencies
+
+if [ $? -ne 0 ]; then # Check the error code from make install
+    print_color $RED "Error! Unable to install targets!"
+    exit 1
+fi
+
+print_color $GREEN "\nSuccess: Project completely built, all tests passed, and all targets installed."
