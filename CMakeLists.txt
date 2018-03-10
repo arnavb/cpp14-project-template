@@ -16,10 +16,6 @@ configure_file(
     "${PROJECT_BINARY_DIR}/config.h"
 )
 
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
 if (NOT CMAKE_BUILD_TYPE)
@@ -36,11 +32,17 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Release")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2")
 endif(CMAKE_BUILD_TYPE STREQUAL "Debug")
 
-include_directories(include)
-include_directories(${PROJECT_BINARY_DIR})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+include_directories(include ${PROJECT_BINARY_DIR})
 add_subdirectory(src/project-abbr)
 
-include(CTest)
-enable_testing()
-add_subdirectory(tests)
+option(BUILD_TESTS "Build test executable" OFF)
+
+if (BUILD_TESTS)
+    include(CTest)
+    enable_testing()
+    add_subdirectory(tests)
+endif(BUILD_TESTS)

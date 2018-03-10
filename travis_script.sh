@@ -24,7 +24,7 @@ print_color $CYAN "Building project...\n"
 mkdir -p build
 cd build
 
-cmake -DCMAKE_BUILD_TYPE=Release .. && make
+cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=On .. && make
 
 if [ $? -ne 0 ]; then # Check the exit code from make
     print_color $RED "Error! Unable to build project!"
