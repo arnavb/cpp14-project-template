@@ -1,19 +1,28 @@
-dist: trusty
-sudo: require
 language: cpp
 compiler: gcc
 
-addons:
-    apt:
-        sources:
+matrix:
+  include:
+    - os: linux
+      addons:
+        apt:
+          sources:
             - ubuntu-toolchain-r-test
-        packages:
+          packages:
             - g++-7
             - gcc-7
             - cmake
+      env:
+        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+    - os: osx
+      osx_image: xcode8 
+      env:
+        - MATRIX_EVAL="brew install gcc cmake && CC=gcc-7 && CXX=g++-7"
+
+before_install:
+  - eval "${MATRIX_EVAL}"
+
 before_script:
-    - export CC=gcc-7
-    - export CXX=g++-7
-    - chmod +x ./travis_script.sh
+  - chmod +x ./travis_script.sh
 
 script: ./travis_script.sh
