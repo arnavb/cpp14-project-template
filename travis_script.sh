@@ -25,10 +25,8 @@ if ! [ -x "$(command -v cmake)" ]; then # Make sure CMake exists
 fi
 
 print_color "$CYAN" "Project: cpp-project-template\n"
-print_color "$CYAN" "This script will: "
-print_color "$CYAN" "1. Build all targets using cmake and make"
-print_color "$CYAN" "2. Run tests using make test"
-print_color "$CYAN" "3. Install executables and libraries using make install\n"
+
+print_color "$CYAN" "BUILD\n"
 
 mkdir -p build
 cd build || exit 1
@@ -38,14 +36,14 @@ if ! build_command; then # Check the exit code from make
     exit 1
 fi
 
-echo -e ""
+print_color "$CYAN" "\nTEST\n"
 
 if ! make test; then # Check the exit code from make test
     print_color "$RED" "Error! Not all tests passed!"
     exit 1
 fi
 
-echo -e ""
+print_color "$CYAN" "\nINSTALL\n"
 
 if ! sudo make install; then # Check the error code from make install
     print_color "$RED" "Error! Unable to install targets!"
