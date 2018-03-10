@@ -11,7 +11,7 @@ CYAN="\033[36;1m" # Cyan
 CL="\033[0m" # Closing
 
 print_color() { # Utility function to print colored text
-    printf -e "$1$2${CL}\n"
+    printf "$1$2${CL}\n"
 }
 
 build_command() {
