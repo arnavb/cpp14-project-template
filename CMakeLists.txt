@@ -6,10 +6,10 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(Project-Name_MAJOR_VERSION 0)
-set(Project-Name_MINOR_VERSION 1)
-set(Project-Name_PATCH_VERSION 0)
-set(Project-Name_VERSION ${Project-Name_MAJOR_VERSION}.${Project-Name_MINOR_VERSION}.${Project-Name_PATCH_VERSION})
+set(VERSION_MAJOR 0)
+set(VERSION_MINOR 1)
+set(VERSION_PATCH 0)
+set(VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH})
 
 configure_file(
     "${PROJECT_SOURCE_DIR}/include/config.h.in"
