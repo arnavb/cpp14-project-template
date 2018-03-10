@@ -7,7 +7,7 @@
 
 RED="\033[31;1m" # Red
 GREEN="\033[32;1m" # Green
-CYAN="\033[36;1m" # Blue
+CYAN="\033[36;1m" # Cyan
 CL="\033[0m" # Closing
 
 print_color() { # Utility function to print colored text
