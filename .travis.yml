@@ -1,6 +1,8 @@
 language: cpp
 compiler: gcc
 
+sudo: required
+
 matrix:
   include:
     - os: linux
