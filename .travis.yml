@@ -14,6 +14,6 @@ addons:
 before_script:
     - export CC=gcc-7
     - export CXX=g++-7
-    - chmod +x ./run_build.sh
+    - chmod +x ./travis_script.sh
 
 script: ./travis_script.sh
