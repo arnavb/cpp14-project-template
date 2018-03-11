@@ -43,7 +43,7 @@ printf "\n"
 print_color "$CYAN" "TEST"
 printf "\n"
 
-if ! make test; then # Check the exit code from make test
+if ! make CTEST_OUTPUT_ON_FAILURE=1 test; then # Check the exit code from make test
     print_color "$RED" "Error! Not all tests passed!"
     exit 1
 fi
