@@ -25,5 +25,5 @@ build_script:
   - cmake --build . --config %CONFIGURATION% -- %MSBUILD_ARGS%
 
 test_script:
-  - cd build
+  - dir
   - ctest --verbose -C %CONFIGURATION%
