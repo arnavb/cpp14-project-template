@@ -33,7 +33,7 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 endif(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 
 include_directories(include ${PROJECT_BINARY_DIR})
-add_subdirectory(src/project-abbr)
+add_subdirectory(src)
 
 option(BUILD_TESTS "Build test executable" OFF)
 
