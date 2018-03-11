@@ -19,11 +19,10 @@ configuration:
 
 before_build:
   - mkdir build && cd build
-  - cmake .. -A%PLATFORM%
+  - cmake -A%PLATFORM% -DBUILD_TESTS=On
 
 build_script:
   - cmake --build . --config %CONFIGURATION% -- %MSBUILD_ARGS%
 
 test_script:
-  - dir
   - ctest --verbose -C %CONFIGURATION%
