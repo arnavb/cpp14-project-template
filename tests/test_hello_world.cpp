@@ -1,5 +1,5 @@
-#include "Catch2.hpp"
-#include <project-abbr/HelloWorld.hpp>
+#include "catch.hpp"
+#include <project-abbr/hello_world.hpp>
 
 TEST_CASE("class HelloWorld")
 {

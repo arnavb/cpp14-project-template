@@ -1,4 +1,4 @@
-#include <project-abbr/Factorial.hpp>
+#include <project-abbr/factorial.hpp>
 
 int factorial(int number)
 {

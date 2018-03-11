@@ -1,5 +1,5 @@
 add_executable(Project-Name main.cpp) # The main executable
-add_library(Project-Name-lib HelloWorld.cpp Factorial.cpp) # A library for tests
+add_library(Project-Name-lib hello_world.cpp factorial.cpp) # A library for tests
 
 SET_TARGET_PROPERTIES(Project-Name-lib PROPERTIES PREFIX "") # Remove the lib prefix
 

@@ -1,5 +1,5 @@
-#include <project-abbr/Factorial.hpp>
-#include <project-abbr/HelloWorld.hpp>
+#include <project-abbr/factorial.hpp>
+#include <project-abbr/hello_world.hpp>
 #include <iostream>
 
 int main()

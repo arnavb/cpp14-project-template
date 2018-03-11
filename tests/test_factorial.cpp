@@ -1,5 +1,5 @@
-#include <project-abbr/Factorial.hpp>
-#include "Catch2.hpp"
+#include <project-abbr/factorial.hpp>
+#include "catch.hpp"
 
 TEST_CASE("function factorial")
 {
