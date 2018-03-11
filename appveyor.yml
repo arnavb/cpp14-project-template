@@ -18,10 +18,11 @@ configuration:
   - Release
 
 before_build:
-  - cmake . -A%PLATFORM% -Bbuild
+  - mkdir build && cd build
+  - cmake .. -A%PLATFORM%
 
 build:
-  project: build\$(APPVEYOR_PROJECT_NAME).sln
+  project: $(APPVEYOR_PROJECT_NAME).sln
   parallel: true
   verbosity: normal
 
