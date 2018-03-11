@@ -26,6 +26,6 @@ TEST_CASE("function factorial")
     SECTION("zero and one")
     {
         REQUIRE(factorial(0) == 1);
-        REQUIRE(factorial(1) == 2);
+        REQUIRE(factorial(1) == 1);
     }
 }
