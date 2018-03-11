@@ -17,7 +17,7 @@ print_color() { # Utility function to print colored text
 
 build_command() {
     cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=On ..
-    make
+    cmake --build .
 }
 
 if ! [ -x "$(command -v cmake)" ]; then # Make sure CMake exists
@@ -43,7 +43,7 @@ printf "\n"
 print_color "$CYAN" "TEST"
 printf "\n"
 
-if ! make CTEST_OUTPUT_ON_FAILURE=1 test; then # Check the exit code from make test
+if ! ctest --verbose; then # Check the exit code from make test
     print_color "$RED" "Error! Not all tests passed!"
     exit 1
 fi
