@@ -18,9 +18,7 @@ configuration:
   - Release
 
 before_build:
-  - mkdir -p build
-  - cd build
-  - cmake .. -A%PLATFORM%
+  - cmake .. -A%PLATFORM% -Bbuild
 
 build:
   project: build\$(APPVEYOR_PROJECT_NAME).sln
