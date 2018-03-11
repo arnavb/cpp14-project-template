@@ -18,7 +18,7 @@ configuration:
   - Release
 
 before_build:
-  - cmake .. -A%PLATFORM% -Bbuild
+  - cmake . -A%PLATFORM% -Bbuild
 
 build:
   project: build\$(APPVEYOR_PROJECT_NAME).sln
