@@ -21,10 +21,8 @@ before_build:
   - mkdir build && cd build
   - cmake .. -A%PLATFORM%
 
-build:
-  project: $(APPVEYOR_PROJECT_NAME).sln
-  parallel: true
-  verbosity: normal
+build_script:
+  - cmake --build . --config %CONFIGURATION% -- %MSBUILD_ARGS%
 
 test_script:
   - ctest --verbose -C %CONFIGURATION%
