@@ -22,6 +22,6 @@ before_build:
   - cmake -A%PLATFORM% -DBUILD_TESTS=On ..
 
 build_script:
-  - cmake --build . --config %CONFIGURATION% -- %MSBUILD_ARGS% # Run the build
-  - ctest --verbose -C %CONFIGURATION% # Test the code
-  - cmake --build . --config %CONFIGURATION% --target INSTALL -- %MSBUILD_ARGS% # Install the files
+  - cmake --build . --config %CONFIGURATION% -- %MSBUILD_ARGS% # Build the code
+  - ctest --verbose -C %CONFIGURATION% # Run tests
+  - cmake --build . --config %CONFIGURATION% --target INSTALL -- %MSBUILD_ARGS% # Install the necessary files

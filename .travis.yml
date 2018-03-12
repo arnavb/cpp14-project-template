@@ -26,6 +26,10 @@ before_install:
   - eval "${MATRIX_EVAL}"
 
 before_script:
-  - chmod +x ./travis_script.sh
+  - mkdir -p build && cd build
+  - cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=On ..
 
-script: ./travis_script.sh
+script:
+  - cmake --build . # Build the code
+  - ctest --verbose # Run tests
+  - make install # Install the necessary files
