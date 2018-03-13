@@ -46,7 +46,6 @@ if (ENABLE_COVERAGE AND NOT CMAKE_CONFIGURATION_TYPES)
     add_subdirectory(src)
     
     target_compile_options(Project-Name-lib PRIVATE "--coverage")
-    target_compile_options(Project-Name PRIVATE "--coverage")
     
     SETUP_TARGET_FOR_COVERAGE(NAME coverage EXECUTABLE tests DEPENDENCIES coverage)
 else (ENABLE_COVERAGE AND NOT CMAKE_CONFIGURATION_TYPES)
