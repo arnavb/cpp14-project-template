@@ -37,7 +37,7 @@ before_script:
 script:
   - cmake --build . # Build the code
   - ctest --verbose # Run tests
-  - make install # Install the necessary files
+  - sudo make install # Install the necessary files
 
 after_success:
   - |
