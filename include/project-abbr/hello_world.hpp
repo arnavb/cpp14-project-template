@@ -9,10 +9,10 @@ class HelloWorld
 public:
     HelloWorld();
     
-    inline std::string hello() { return hello_; }
-    inline std::string world() { return world_; }
+    std::string hello() const;
+    std::string world() const;
     
-    int generateRandomNumber(); // Not inline for testing purposes
+    int generateRandomNumber() const;
 private:
     std::string hello_;
     std::string world_;

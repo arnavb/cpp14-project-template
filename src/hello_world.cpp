@@ -6,7 +6,17 @@ HelloWorld::HelloWorld() :
 {
 }
 
-int HelloWorld::generateRandomNumber()
+std::string HelloWorld::hello() const
+{
+    return hello_;
+}
+
+std::string HelloWorld::world() const
+{
+    return world_;
+}
+
+int HelloWorld::generateRandomNumber() const
 {
     // Completely random, no bias
     return 4'000; // <-- Also uses C++14 digit separators

@@ -15,21 +15,32 @@ matrix:
             - gcc-5
             - cmake
       env:
-        - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
+        - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && ENABLE_COVERAGE=ON"
     - os: osx
       osx_image: xcode9.2 
       compiler: clang
       env:
-        - MATRIX_EVAL=""
+        - MATRIX_EVAL="CC=clang && CXX=clang++"
 
 before_install:
   - eval "${MATRIX_EVAL}"
 
 before_script:
   - mkdir -p build && cd build
-  - cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=On ..
+  - |
+    if [ "$ENABLE_COVERAGE" == "ON" ]; then
+      cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON -DENABLE_COVERAGE=ON ..
+    else
+      cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON ..
+    fi
 
 script:
   - cmake --build . # Build the code
   - ctest --verbose # Run tests
   - make install # Install the necessary files
+
+after_success:
+  - |
+    if [ "$ENABLE_COVERAGE" == "ON" ]; then
+      bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
+    fi
