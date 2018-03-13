@@ -14,6 +14,7 @@ matrix:
             - g++-5
             - gcc-5
             - cmake
+            - lcov
       env:
         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && ENABLE_COVERAGE=ON"
     - os: osx
