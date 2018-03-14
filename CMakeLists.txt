@@ -36,12 +36,13 @@ if (ENABLE_COVERAGE AND NOT CMAKE_CONFIGURATION_TYPES)
         set(BUILD_TESTS On CACHE STRING "" FORCE)
     endif (NOT BUILD_TESTS)
     
+    include(CodeCoverage)
+    
     include_directories(include ${PROJECT_BINARY_DIR})
     add_subdirectory(src)
     
     target_compile_options(Project-Name-lib PRIVATE "--coverage")
     
-    include(CodeCoverage)
     SETUP_TARGET_FOR_COVERAGE(NAME coverage EXECUTABLE tests DEPENDENCIES coverage)
 else (ENABLE_COVERAGE AND NOT CMAKE_CONFIGURATION_TYPES)
     if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
