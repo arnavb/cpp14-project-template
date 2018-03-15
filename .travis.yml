@@ -13,6 +13,7 @@ matrix:
           packages:
             - g++-5
             - gcc-5
+            - cmake
       env:
         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && BUILD_TYPE=Debug"
     - os: linux
@@ -24,32 +25,25 @@ matrix:
           packages:
             - g++-5
             - gcc-5
+            - cmake
       env:
         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && BUILD_TYPE=Release"
     - os: osx
       osx_image: xcode9.2 
       compiler: clang
       env:
-        - MATRIX_EVAL="CC=clang && CXX=clang++ && && BUILD_TYPE=Debug"
+        - MATRIX_EVAL="CC=clang && CXX=clang++ && BUILD_TYPE=Debug"
     - os: osx
       osx_image: xcode9.2 
       compiler: clang
       env:
-        - MATRIX_EVAL="CC=clang && CXX=clang++ && && BUILD_TYPE=Release"
+        - MATRIX_EVAL="CC=clang && CXX=clang++ && BUILD_TYPE=Release"
 
 before_install:
   - eval "${MATRIX_EVAL}"
 
 before_script:
   - mkdir -p build && cd build
-  - |
-    if [ "$TRAVIS_OS_NAME" == "linux" ]; then
-      CMAKE_URL="https://cmake.org/files/v3.2/cmake-3.2.3.tar.gz"
-      mkdir cmake && travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
-      export PATH=${DEPS_DIR}/cmake/bin:${PATH}
-    elif [ "$TRAVIS_OS_NAME" == "osx" ]; then
-      which cmake || brew install cmake
-    fi
   - cmake -DCMAKE_BUILD_TYPE=BUILD_TYPE -DBUILD_TESTS=ON ..
 
 script:
