@@ -17,8 +17,4 @@ TEST_CASE("class HelloWorld")
     {
         REQUIRE(helloWorld.generateRandomNumber() == 4000);
     }
-    SECTION("headerFunction() coverage")
-    {
-        REQUIRE(helloWorld.headerFunction(3) == 4); // Incomplete coverage
-    }
 }

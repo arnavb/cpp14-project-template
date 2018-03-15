@@ -23,40 +23,19 @@ if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the build type (Debug/Release)")
 endif (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
 
-option(BUILD_TESTS "Build test executable" OFF)
+if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2")
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4 /WX")
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /O2")
+endif(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 
-if (ENABLE_COVERAGE AND NOT CMAKE_CONFIGURATION_TYPES)
-    if (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
-        message(STATUS "Coverage in a non-debug build may lead to misleading results! Setting build type to 'Debug'!")
-        set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "" FORCE)
-    endif (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
-    
-    if (NOT BUILD_TESTS)
-        message(STATUS "Tests must be enabled in a coverage build! Setting BUILD_TESTS to On!")
-        set(BUILD_TESTS On CACHE STRING "" FORCE)
-    endif (NOT BUILD_TESTS)
-    
-    include(CodeCoverage)
-    
-    include_directories(include ${PROJECT_BINARY_DIR})
-    add_subdirectory(src)
-    
-    target_compile_options(Project-Name-lib PRIVATE "--coverage")
-    
-    SETUP_TARGET_FOR_COVERAGE(NAME coverage EXECUTABLE tests DEPENDENCIES coverage)
-else (ENABLE_COVERAGE AND NOT CMAKE_CONFIGURATION_TYPES)
-    if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror")
-        set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
-        set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2")
-    elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4 /WX")
-        set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /O2")
-    endif(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    
-    include_directories(include ${PROJECT_BINARY_DIR})
-    add_subdirectory(src)
-endif (ENABLE_COVERAGE AND NOT CMAKE_CONFIGURATION_TYPES)
+include_directories(include ${PROJECT_BINARY_DIR})
+add_subdirectory(src)
+
+option(BUILD_TESTS "Build test executable" OFF)
 
 if (BUILD_TESTS)
     include(CTest)

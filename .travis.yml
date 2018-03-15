@@ -14,9 +14,8 @@ matrix:
             - g++-5
             - gcc-5
             - cmake
-            - lcov
       env:
-        - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && ENABLE_COVERAGE=ON"
+        - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
     - os: osx
       osx_image: xcode9.2 
       compiler: clang
@@ -28,20 +27,9 @@ before_install:
 
 before_script:
   - mkdir -p build && cd build
-  - |
-    if [ "$ENABLE_COVERAGE" == "ON" ]; then
-      cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON -DENABLE_COVERAGE=ON ..
-    else
-      cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON ..
-    fi
+  - cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON ..
 
 script:
   - cmake --build . # Build the code
   - ctest --verbose # Run tests
   - sudo make install # Install the necessary files
-
-after_success:
-  - |
-    if [ "$ENABLE_COVERAGE" == "ON" ]; then
-      bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
-    fi
