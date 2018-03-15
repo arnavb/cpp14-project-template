@@ -12,7 +12,7 @@ set(VERSION_PATCH 0)
 set(VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH})
 
 configure_file(
-    "${PROJECT_SOURCE_DIR}/include/config.h.in"
+    "${PROJECT_SOURCE_DIR}/include/project-abbr/config.h.in"
     "${PROJECT_BINARY_DIR}/config.h"
 )
 
@@ -46,5 +46,7 @@ endif (BUILD_TESTS)
 
 # Install the project header files into the appropriate directory
 # Other installs are in src/CMakeLists.txt
-install(DIRECTORY include/ DESTINATION include) # Install the main project header files
-install(FILES ${PROJECT_BINARY_DIR}/config.h DESTINATION include) # Install the configuration file
+install(DIRECTORY include/ # Install the main project header files (Excluding config.h.in)
+    DESTINATION include
+    PATTERN "config.h.in" EXCLUDE)
+install(FILES ${PROJECT_BINARY_DIR}/config.h DESTINATION include/project-abbr) # Install the generated configuration file
