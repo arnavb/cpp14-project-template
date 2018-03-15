@@ -19,7 +19,6 @@ configure_file(
 # Options
 option(BUILD_TESTS "Build test executable" OFF)
 
-
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
 if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
@@ -44,3 +43,8 @@ if (BUILD_TESTS)
     enable_testing()
     add_subdirectory(tests)
 endif (BUILD_TESTS)
+
+# Install the project header files into the appropriate directory
+# Other installs are in src/CMakeLists.txt
+install(DIRECTORY include/ DESTINATION include) # Install the main project header files
+install(FILES ${PROJECT_BINARY_DIR}/config.h DESTINATION include) # Install the configuration file
