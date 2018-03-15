@@ -16,6 +16,10 @@ configure_file(
     "${PROJECT_BINARY_DIR}/config.h"
 )
 
+# Options
+option(BUILD_TESTS "Build test executable" OFF)
+
+
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
 if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
@@ -34,8 +38,6 @@ endif(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "G
 
 include_directories(include ${PROJECT_BINARY_DIR})
 add_subdirectory(src)
-
-option(BUILD_TESTS "Build test executable" OFF)
 
 if (BUILD_TESTS)
     include(CTest)
