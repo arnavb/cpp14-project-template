@@ -1,14 +1,10 @@
 cmake_minimum_required(VERSION 3.1)
 
-project(Project-Name)
+project(Project-Name VERSION 0.1.0)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
-
-set(VERSION_MAJOR 0)
-set(VERSION_MINOR 1)
-set(VERSION_PATCH 0)
 
 # Options
 option(BUILD_TESTS "Build test executable" OFF)
