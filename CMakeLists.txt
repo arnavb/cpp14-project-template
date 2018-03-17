@@ -29,6 +29,7 @@ include_directories(include)
 add_subdirectory(src)
 
 if (BUILD_TESTS)
+    add_subdirectory(third_party/catch)
     include(CTest)
     enable_testing()
     add_subdirectory(test)
