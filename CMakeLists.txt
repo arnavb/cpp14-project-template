@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.1)
 
 if (POLICY CMP0048)
-  cmake_policy(SET CMP0048 NEW)
+    cmake_policy(SET CMP0048 NEW)
 endif (POLICY CMP0048)
 
 project(Project-Name VERSION 0.1.0)
