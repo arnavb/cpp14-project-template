@@ -1,4 +1,9 @@
 cmake_minimum_required(VERSION 2.8.8)
+
+if(POLICY CMP0048)
+  cmake_policy(SET CMP0048 NEW)
+endif()
+
 project(catch_builder CXX)
 include(ExternalProject)
 find_package(Git REQUIRED)
@@ -13,7 +18,7 @@ ExternalProject_Add(
     BUILD_COMMAND ""
     INSTALL_COMMAND ""
     LOG_DOWNLOAD ON
-   )
+)
 
 # Expose required variable (CATCH_INCLUDE_DIR) to parent scope
 ExternalProject_Get_Property(catch source_dir)
