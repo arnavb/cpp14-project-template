@@ -23,5 +23,5 @@ before_build:
 
 build_script:
   - cmake --build . --config %CONFIGURATION% -- %MSBUILD_ARGS% # Build the code
-  - ctest --verbose -C %CONFIGURATION% # Run tests
+  - ctest -C %CONFIGURATION% # Run tests
   - cmake --build . --config %CONFIGURATION% --target INSTALL -- %MSBUILD_ARGS% # Install the necessary files

@@ -48,5 +48,10 @@ before_script:
 
 script:
   - cmake --build . # Build the code
-  - ctest --verbose # Run tests
+  - |
+    if [ "$CMAKE_BUILD_TYPE" == "Debug" ]; then # Run tests
+      ctest -T memcheck # Check for memory leaks using Valgrind
+    else
+      ctest
+    fi
   - sudo make install # Install the necessary files
