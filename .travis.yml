@@ -56,6 +56,6 @@ script:
   - ctest --verbose # Run tests
   - |
     if [ "$CPPCHECK_ANALYSIS" == "ON" ]; then
-      make cppcheck
+      make analysis
     fi
   - sudo make install # Install the necessary files
