@@ -52,6 +52,7 @@ if (CPPCHECK_ANALYSIS)
         COMMAND ${CPPCHECK}
         --enable=all
         --suppress=missingIncludeSystem
+        --error-exitcode=1
         -I${CMAKE_SOURCE_DIR}/include
         ${CMAKE_SOURCE_DIR}/src
     )

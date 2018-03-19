@@ -15,7 +15,7 @@ matrix:
             - gcc-5
             - cmake
       env:
-        - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && BUILD_TYPE=Debug"
+        - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && BUILD_TYPE=Debug && CPPCHECK_ANALYSIS=ON"
     - os: linux
       compiler: gcc
       addons:
@@ -41,12 +41,28 @@ matrix:
 
 before_install:
   - eval "${MATRIX_EVAL}"
-
+  - |
+    if [ "$CPPCHECK_ANALYSIS" == "ON" ]; then
+      wget https://github.com/danmar/cppcheck/releases/download/1.81/cppcheck-1.81.tar.gz
+      tar -xvf cppcheck-1.81.tar.gz
+      cd cppcheck-1.81
+      make SRCDIR=build CFGDIR=/usr/share/cppcheck/
+      sudo make install CFGDIR=/usr/share/cppcheck/ # https://stackoverflow.com/a/26650139/6525260
+    fi
 before_script:
   - mkdir -p build && cd build
-  - cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_TESTS=ON ..
+  - |
+    if [ "$CPPCHECK_ANALYSIS" == "ON" ]; then
+      cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_TESTS=ON -DCPPCHECK_ANALYSIS=ON ..
+    else
+      cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_TESTS=ON ..
+    fi
 
 script:
   - cmake --build . # Build the code
   - ctest --verbose # Run tests
+  - |
+    if [ "$CPPCHECK_ANALYSIS" == "ON" ]; then
+      make cppcheck
+    fi
   - sudo make install # Install the necessary files
