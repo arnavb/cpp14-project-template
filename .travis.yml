@@ -41,16 +41,6 @@ matrix:
 
 before_install:
   - eval "${MATRIX_EVAL}"
-  - |
-    if [ "$CPPCHECK_ANALYSIS" == "ON" ]; then
-      wget https://github.com/danmar/cppcheck/releases/download/1.81/cppcheck-1.81.tar.gz
-      tar -xvf cppcheck-1.81.tar.gz
-      cd cppcheck-1.81
-      make SRCDIR=build CFGDIR=/usr/share/cppcheck/
-      sudo make install CFGDIR=/usr/share/cppcheck/ # https://stackoverflow.com/a/26650139/6525260
-      cd ..
-      rm -rf cppcheck-1.81*
-    fi
 before_script:
   - mkdir -p build && cd build
   - |

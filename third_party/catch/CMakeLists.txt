@@ -3,7 +3,7 @@ find_package(Git REQUIRED)
 
 ExternalProject_Add(
     catch
-    PREFIX ${CMAKE_BINARY_DIR}/catch
+    PREFIX ${CMAKE_BINARY_DIR}/third_party/catch
     GIT_REPOSITORY https://github.com/catchorg/Catch2.git
     GIT_TAG v2.2.1
     TIMEOUT 10

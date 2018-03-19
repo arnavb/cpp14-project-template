@@ -41,21 +41,7 @@ if (BUILD_TESTS)
 endif (BUILD_TESTS)
  
 if (CPPCHECK_ANALYSIS)
-    find_program(CPPCHECK cppcheck)
-    
-    if (NOT CPPCHECK)
-        message(FATAL_ERROR "Cppcheck is not installed")
-    endif (NOT CPPCHECK)
-    
-    add_custom_target(
-        cppcheck
-        COMMAND ${CPPCHECK}
-        --enable=all
-        --suppress=missingIncludeSystem
-        --error-exitcode=1
-        -I${CMAKE_SOURCE_DIR}/include
-        ${CMAKE_SOURCE_DIR}/src
-    )
+    add_subdirectory(third_party/cppcheck)
 endif (CPPCHECK_ANALYSIS)
 
 # Install the project header files into the appropriate directory
