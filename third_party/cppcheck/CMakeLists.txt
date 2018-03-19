@@ -7,7 +7,7 @@ ExternalProject_Add(
     GIT_REPOSITORY https://github.com/danmar/cppcheck.git
     GIT_TAG 1.81
     TIMEOUT 10
-    CMAKE_ARGS "-DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}/third_party/cppcheck/bin"
+    CMAKE_ARGS "-DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}/third_party/cppcheck"
     TMP_DIR ${CMAKE_BINARY_DIR}/third_party/cppcheck/tmp
     STAMP_DIR ${CMAKE_BINARY_DIR}/third_party/cppcheck/stamp
     DOWNLOAD_DIR ${CMAKE_BINARY_DIR}/third_party/cppcheck/download
@@ -18,7 +18,7 @@ ExternalProject_Add(
 
 add_custom_target(
     analysis
-    COMMAND ${CMAKE_BINARY_DIR}third_party/cppcheck/bin/cppcheck
+    COMMAND ${CMAKE_BINARY_DIR}/third_party/cppcheck/bin/cppcheck
     --enable=all
     --suppress=missingIncludeSystem
     --error-exitcode=1
