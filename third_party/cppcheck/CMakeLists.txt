@@ -1,17 +1,13 @@
 include(ExternalProject)
 find_package(Git REQUIRED)
 
-list(APPEND CPPCHECK_CMAKE_ARGS
-    "-DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}"
-)
-
 ExternalProject_Add(
     cppcheck
     PREFIX ${CMAKE_BINARY_DIR}/third_party/cppcheck
     GIT_REPOSITORY https://github.com/danmar/cppcheck.git
     GIT_TAG 1.81
     TIMEOUT 10
-    CMAKE_ARGS ${CPPCHECK_CMAKE_ARGS}
+    CMAKE_ARGS "-DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}"
     TMP_DIR ${CMAKE_BINARY_DIR}/third_party/cppcheck/tmp
     STAMP_DIR ${CMAKE_BINARY_DIR}/third_party/cppcheck/stamp
     DOWNLOAD_DIR ${CMAKE_BINARY_DIR}/third_party/cppcheck/download
