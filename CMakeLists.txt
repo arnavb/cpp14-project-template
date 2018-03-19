@@ -41,9 +41,15 @@ if (BUILD_TESTS)
 endif (BUILD_TESTS)
  
 if (CPPCHECK_ANALYSIS)
+    find_program(CPPCHECK cppcheck)
+    
+    if (NOT CPPCHECK)
+        message(FATAL_ERROR "Cppcheck is not installed")
+    endif (NOT CPPCHECK)
+    
     add_custom_target(
         cppcheck
-        COMMAND /usr/bin/cppcheck
+        COMMAND ${CPPCHECK}
         --enable=all
         --suppress=missingIncludeSystem
         -I${CMAKE_SOURCE_DIR}/include
