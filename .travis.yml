@@ -48,6 +48,8 @@ before_install:
       cd cppcheck-1.81
       make SRCDIR=build CFGDIR=/usr/share/cppcheck/
       sudo make install CFGDIR=/usr/share/cppcheck/ # https://stackoverflow.com/a/26650139/6525260
+      cd ..
+      rm -rf cppcheck-1.81*
     fi
 before_script:
   - mkdir -p build && cd build
