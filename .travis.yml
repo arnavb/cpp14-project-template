@@ -15,7 +15,7 @@ matrix:
             - gcc-5
             - cmake
       env:
-        - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && BUILD_TYPE=Debug && CPPCHECK_ANALYSIS=ON"
+        - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && BUILD_TYPE=Debug"
     - os: linux
       compiler: gcc
       addons:
@@ -44,18 +44,9 @@ before_install:
 
 before_script:
   - mkdir -p build && cd build
-  - |
-    if [ "$CPPCHECK_ANALYSIS" == "ON" ]; then
-      cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_TESTS=ON -DCPPCHECK_ANALYSIS=ON ..
-    else
-      cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_TESTS=ON ..
-    fi
+  - cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_TESTS=ON ..
 
 script:
   - cmake --build . # Build the code
   - ctest --verbose # Run tests
-  - |
-    if [ "$CPPCHECK_ANALYSIS" == "ON" ]; then
-      make analysis
-    fi
   - sudo make install # Install the necessary files

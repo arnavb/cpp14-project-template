@@ -12,7 +12,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Options
 option(BUILD_TESTS "Build test executable" OFF)
-option(CPPCHECK_ANALYSIS "Run static analysis of code using Cppcheck" OFF)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
@@ -39,10 +38,6 @@ if (BUILD_TESTS)
     enable_testing()
     add_subdirectory(test)
 endif (BUILD_TESTS)
- 
-if (CPPCHECK_ANALYSIS)
-    add_subdirectory(third_party/cppcheck)
-endif (CPPCHECK_ANALYSIS)
 
 # Install the project header files into the appropriate directory
 # Other installs are in src/CMakeLists.txt
