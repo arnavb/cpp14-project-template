@@ -12,6 +12,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Options
 option(BUILD_TESTS "Build test executable" OFF)
+option(GEN_DOCS "Generate documentation" OFF)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
@@ -38,6 +39,10 @@ if (BUILD_TESTS)
     enable_testing()
     add_subdirectory(test)
 endif (BUILD_TESTS)
+
+if (GEN_DOCS)
+    add_subdirectory(doc)
+endif (GEN_DOCS)
 
 # Install the project header files into the appropriate directory
 # Other installs are in src/CMakeLists.txt
