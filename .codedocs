@@ -36,6 +36,7 @@ PROJECT_BRIEF = "A Cross-platform C++14 project template"
 OUTPUT_DIRECTORY = doc/
 INPUT = doc/ include/
 USE_MDFILE_AS_MAINPAGE = doc/main_page.md
+EXTRACT_ALL = NO
 
 # Doxygen configuration may also be placed in this file.
 # Currently, the following Doxygen configuration options are available. Refer
