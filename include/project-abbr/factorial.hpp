@@ -20,9 +20,7 @@
  * \file
  * \author Arnav Borborah <arnavborborah11@gmail.com>
  * 
- * \section Description
- * 
- * Contains the factorial function
+ * This file contains the declaration for function factorial.
  */
 
 #pragma once
@@ -30,7 +28,6 @@
 #define FACTORIAL_HPP_
 
 /**
- * 
  * \brief Function that returns the factorial of an integer
  * 
  * The factorial function returns the product of all 
@@ -41,12 +38,11 @@
  * 
  * \return The factorial of number
  * 
- * \section Example
+ * ### Example
  * \code
  * int fact10 = factorial(10); // fact10 contains 3628800
  * int factNeg10 = factorial(-10); // factNeg10 contains 1
  * \endcode
- * 
  */
 int factorial(int number);
 

@@ -21,10 +21,7 @@
  * \file
  * \author Arnav Borborah <arnavborborah11@gmail.com>
  * 
- * \section Description
- * 
- * Contains the declaration of the HelloWorld class.
- * 
+ * This file contains the declaration for class HelloWorld.
  */
 
 #pragma once
@@ -34,56 +31,46 @@
 #include <string>
 
 /**
- * 
  * A useful class that contains utilities 
  * helpful to "Hello, World!" programs.
  * 
- * \section Example
+ * ### Example
  * \code
  * HelloWorld helloWorld;
  * 
  * std::string helloWorld = helloWorld.hello() + ", " + helloWorld.world() + "!"; // helloWorld contains "Hello, World!"
  * int randomNumber = helloWorld.generateRandomNumber(); // randomNumber contains 4000
  * \endcode
- * 
  */
 class HelloWorld
 {
 public:
     /**
-     * 
      * \brief Constructor for HelloWorld class 
      * 
      * Initializes class members hello_ and world_
      * with their respective values.
-     * 
      */
     HelloWorld();
     
     /**
-     * 
      * \brief Getter for member variable hello_ 
      * 
      * \return The string "Hello"
-     * 
      */
     std::string hello() const;
     
     /**
-     * 
      * \brief Getter for member variable world_ 
      * 
      * \return The string "World"
-     * 
      */
     std::string world() const;
     
     /**
-     * 
      * \brief A random number generator
      * 
      * \return The random number 4000
-     * 
      */
     int generateRandomNumber() const;
     
