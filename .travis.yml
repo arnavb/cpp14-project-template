@@ -50,7 +50,7 @@ before_script:
 script:
   - cmake --build . # Build the code
   - |
-    if [ "$BUILD_TYPE" == "Debug" && "$TRAVIS_OS_NAME" == "linux" ]; then # Run tests
+    if [ "$BUILD_TYPE" == "Debug" ] && [ "$TRAVIS_OS_NAME" == "linux" ]; then # Run tests
       ctest -T memcheck # Check for memory leaks using Valgrind
     else
       ctest
