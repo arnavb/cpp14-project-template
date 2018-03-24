@@ -69,6 +69,8 @@ if (GEN_DOCS)
 endif (GEN_DOCS)
 
 # Install the project header files into the appropriate directory
-# Other installs are in src/CMakeLists.txt
 install(DIRECTORY include/ DESTINATION include PATTERN "config.hpp.in" EXCLUDE) # Install our main header files
 install(FILES ${CMAKE_BINARY_DIR}/include/project-abbr/config.hpp DESTINATION include/project-abbr) # Install our configuration file
+
+# Install the project's extra files
+install(FILES README.md LICENSE DESTINATION share/project-abbr)

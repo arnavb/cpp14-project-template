@@ -21,6 +21,7 @@ SET_TARGET_PROPERTIES(Project-Name-lib PROPERTIES PREFIX "") # Remove the lib pr
 
 target_link_libraries(Project-Name Project-Name-lib) # Link our sources to the executable
 
+# Install the built library and executable into the appropriate directory
 install(TARGETS Project-Name DESTINATION bin)
 install(TARGETS Project-Name-lib
     ARCHIVE DESTINATION lib
