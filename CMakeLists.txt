@@ -1,10 +1,14 @@
 cmake_minimum_required(VERSION 3.1)
 
-if (POLICY CMP0048)
-    cmake_policy(SET CMP0048 NEW)
-endif (POLICY CMP0048)
+project(Project-Name)
 
-project(Project-Name VERSION 0.1.0)
+set(VERSION_MAJOR 0)
+set(VERSION_MINOR 1)
+set(VERSION_PATCH 0)
+set(VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
+
+set(PROJ_NAME "Project Name") # PROJECT_NAME is a predefined variable
+set(PROJECT_DESCRIPTION "A cross-platform C++14 project template")
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
