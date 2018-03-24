@@ -14,7 +14,7 @@
 # paths will be considered relative to the root of the repository, not the
 # location of the DOXYFILE.
 
-DOXYFILE =
+DOXYFILE = doc/Doxyfile.in
 
 # Specify external repository to link documentation with.
 # This is similar to Doxygen's TAGFILES option, but will automatically link to
@@ -29,6 +29,13 @@ TAGLINKS =
 #---------------------------------------------------------------------------
 # Doxygen Configuration
 #---------------------------------------------------------------------------
+
+PROJECT_NAME = "Project Name"
+PROJECT_NUMBER = 0.1.0
+PROJECT_BRIEF = "A Cross-platform C++14 project template"
+OUTPUT_DIRECTORY = doc/
+INPUT = doc/ include/
+USE_MDFILE_AS_MAINPAGE = doc/main_page.md
 
 # Doxygen configuration may also be placed in this file.
 # Currently, the following Doxygen configuration options are available. Refer
@@ -131,7 +138,7 @@ TAGLINKS =
 # INLINE_INHERITED_MEMB =
 # INLINE_SIMPLE_STRUCTS =
 # INLINE_SOURCES =
-INPUT = doc/main_page.md
+# INPUT = 
 # INPUT_ENCODING =
 # INTERACTIVE_SVG =
 # INTERNAL_DOCS =
@@ -149,10 +156,10 @@ INPUT = doc/main_page.md
 # OUTPUT_LANGUAGE =
 # PLANTUML_JAR_PATH =
 # PREDEFINED =
-PROJECT_BRIEF = "A Cross-platform C++14 project template"
+# PROJECT_BRIEF = 
 # PROJECT_LOGO =
-PROJECT_NAME = "Project Name"
-PROJECT_NUMBER = 0.1.0
+# PROJECT_NAME = 
+# PROJECT_NUMBER = 
 # QT_AUTOBRIEF =
 # RECURSIVE =
 # REFERENCED_BY_RELATION =
@@ -188,6 +195,6 @@ PROJECT_NUMBER = 0.1.0
 # TYPEDEF_HIDES_STRUCT =
 # UML_LIMIT_NUM_FIELDS =
 # UML_LOOK =
-USE_MDFILE_AS_MAINPAGE = doc/main_page.md
+# USE_MDFILE_AS_MAINPAGE = 
 # VERBATIM_HEADERS =
 #
