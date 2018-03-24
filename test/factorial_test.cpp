@@ -17,6 +17,7 @@
  */
 
 #include <project-abbr/factorial.hpp>
+
 #include "catch.hpp"
 
 TEST_CASE("function factorial")

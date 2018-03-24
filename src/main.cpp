@@ -16,14 +16,26 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <project-abbr/config.hpp>
 #include <project-abbr/factorial.hpp>
 #include <project-abbr/hello_world.hpp>
-#include <iostream>
 
-int main()
+#include <iostream>
+#include <string>
+
+int main(int argc, char* argv[])
 {
     HelloWorld helloWorld;
-
+    
+    if (argc == 2 && std::string{ argv[1] } == "--version")
+    {
+        std::cout << "Project Name version " << VERSION << "\n";
+        std::cout << "Copyright (C) 2018 Arnav Borborah\n";
+        std::cout << "This program comes with ABSOLUTELY NO WARRANTY; for details see LICENSE.\n";
+        std::cout << "This is free software, and you are welcome to redistribute it\n";
+        std::cout << "under certain conditions; see LICENSE for details.\n\n";   
+    }
+    
     std::cout << helloWorld.hello() << ", " << helloWorld.world() << "!\n";
     std::cout << "Random number = " << helloWorld.generateRandomNumber() << "\n";
     std::cout << "Factorial(5) = " << factorial(5) << "\n";

@@ -16,8 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "catch.hpp"
 #include <project-abbr/hello_world.hpp>
+
+#include "catch.hpp"
 
 TEST_CASE("class HelloWorld")
 {

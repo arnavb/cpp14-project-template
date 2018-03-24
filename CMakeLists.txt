@@ -26,6 +26,10 @@ set(VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 set(PROJ_NAME "\"Project Name\"") # PROJECT_NAME is a predefined variable
 set(PROJECT_DESCRIPTION "\"A cross-platform C++14 project template\"")
 
+configure_file(include/project-abbr/config.hpp.in
+    ${CMAKE_BINARY_DIR}/include/project-abbr/config.hpp
+)
+
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -50,7 +54,7 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /O2")
 endif(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 
-include_directories(include)
+include_directories(include ${CMAKE_BINARY_DIR}/include)
 add_subdirectory(src)
 
 if (BUILD_TESTS)
@@ -66,4 +70,5 @@ endif (GEN_DOCS)
 
 # Install the project header files into the appropriate directory
 # Other installs are in src/CMakeLists.txt
-install(DIRECTORY include/ DESTINATION include)
+install(DIRECTORY include/ DESTINATION include PATTERN "config.hpp.in" EXCLUDE) # Install our main header files
+install(FILES ${CMAKE_BINARY_DIR}/include/project-abbr/config.hpp DESTINATION include/project-abbr) # Install our configuration file
