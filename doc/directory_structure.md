@@ -14,7 +14,7 @@ Ignoring all extraneous files, this is the structure that this project uses:
     │   └── markdown.html
     ├── include
     │   └── project-abbr
-    │       ├── config.hpp
+    │       ├── config.hpp.in
     │       ├── factorial.hpp
     │       └── hello_world.hpp
     ├── src
