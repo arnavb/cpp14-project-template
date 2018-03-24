@@ -1,11 +1,5 @@
-/**
- * \file
- * \author Arnav Borborah <arnavborborah11@gmail.com>
- * 
- * \section License
- * 
+/* 
  * factorial.hpp - Contains declaration of function factorial
- * 
  * Copyright (C) 2018  Arnav Borborah
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,11 +14,15 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**
+ * \file
+ * \author Arnav Borborah <arnavborborah11@gmail.com>
  * 
  * \section Description
  * 
- * Contains the declaration of the function factorial
- * 
+ * Contains the factorial function
  */
 
 #pragma once
