@@ -1,8 +1,8 @@
 /**
- * @file
- * @author Arnav Borborah <arnavborborah11@gmail.com>
+ * \file
+ * \author Arnav Borborah <arnavborborah11@gmail.com>
  * 
- * @section License
+ * \section License
  * 
  * HelloWorld.hpp - Contains declaration of class HelloWorld
  * 
@@ -21,7 +21,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
- * @section Description
+ * \section Description
  * 
  * Contains the declaration of the HelloWorld class.
  * 
