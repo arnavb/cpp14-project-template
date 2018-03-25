@@ -58,14 +58,14 @@ public:
      * 
      * \return The string "Hello"
      */
-    std::string hello() const;
+    const std::string& hello() const;
     
     /**
      * \brief Getter for member variable world_ 
      * 
      * \return The string "World"
      */
-    std::string world() const;
+    const std::string& world() const;
     
     /**
      * \brief A random number generator

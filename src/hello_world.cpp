@@ -24,12 +24,12 @@ HelloWorld::HelloWorld() :
 {
 }
 
-std::string HelloWorld::hello() const
+const std::string& HelloWorld::hello() const
 {
     return hello_;
 }
 
-std::string HelloWorld::world() const
+const std::string& HelloWorld::world() const
 {
     return world_;
 }
