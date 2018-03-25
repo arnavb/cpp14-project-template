@@ -15,5 +15,6 @@ This project provides some CMake variables for use during configuration and othe
 | Target      | Description                                                    |
 |-------------|----------------------------------------------------------------|
 | `[Nothing]` | Build the application (Including `test` if `BUILD_TESTS=ON`).  |
+| `install`   | Install all built targets.                                     |
 | `test`      | If tests were built, then run all tests.                       |
 | `doc`       | If `GEN_DOCS=ON`, then generate documentation using `Doxygen`. |
