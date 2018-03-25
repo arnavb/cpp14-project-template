@@ -63,4 +63,4 @@ In order to run the tests, the option `BUILD_TESTS` needs to be set to `ON` duri
 
 ## License
 
-This project is licensed under the [GNU GPLv3 License](./LICENSE).
+This project is licensed under the [Apache 2.0 License](./LICENSE).
