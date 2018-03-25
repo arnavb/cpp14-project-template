@@ -1,8 +1,10 @@
 # CMake Variables and Targets {#variables_and_targets}
 
+\tableofcontents
+
 This project provides some CMake variables for use during configuration and other explicitly specified build targets.
 
-## CMake Variables
+\section variables CMake Variables
 
 | Variable           | Description                                                                                    | Possible Values                                 | Default Value |
 |--------------------|------------------------------------------------------------------------------------------------|-------------------------------------------------|---------------|
@@ -10,7 +12,7 @@ This project provides some CMake variables for use during configuration and othe
 | `GEN_DOCS`         | An option used to determine if documentation will or will not be generated.                    | `ON`/`OFF`                                      | `OFF`         |
 | `BUILD_TESTS`      | An option used to determine if the test executable should or should not be built.              | `ON`/`OFF`                                      | `OFF`         |
 
-## Build Targets
+\section targets Build Targets
 
 | Target      | Description                                                    |
 |-------------|----------------------------------------------------------------|
