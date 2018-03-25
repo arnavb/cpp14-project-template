@@ -1,5 +1,7 @@
 # Setting up Documentation {#setting_up_documentation}
 
+\tableofcontents
+
 \section local_documentation Setting up Local Documentation
 
 This project relies on [Doxygen](http://www.doxygen.org/) to generate its documentation. In order to do so, a file `Doxyfile.in` is configured with many useful CMake variables from the file `doc/CMakeLists.txt`.
