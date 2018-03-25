@@ -10,8 +10,9 @@ Ignoring all extraneous files, this is the structure that this project uses:
     ├── doc
     │   ├── CMakeLists.txt
     │   ├── Doxyfile.in
+    │   ├── directory_structure.md
     │   ├── main_page.md
-    │   └── markdown.html
+    │   └── ...
     ├── include
     │   └── project-abbr
     │       ├── config.hpp.in

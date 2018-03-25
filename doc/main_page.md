@@ -7,3 +7,4 @@ Making cross platform C++ projects is widely known to be a troublesome ambition.
 This documentation is divided into the following sections:
 - \subpage variables_and_targets
 - \subpage directory_structure
+- \subpage setting_up_ci
