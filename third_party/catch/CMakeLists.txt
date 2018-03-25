@@ -1,3 +1,6 @@
+# Taken from https://github.com/catchorg/Catch2/blob/master/docs/build-systems.md#cmake
+# and slightly modified to fit the needs of this project.
+
 include(ExternalProject)
 find_package(Git REQUIRED)
 
