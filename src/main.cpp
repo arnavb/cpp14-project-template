@@ -29,10 +29,9 @@ int main(int argc, char* argv[])
     if (argc == 2 && std::string{ argv[1] } == "--version")
     {
         std::cout << "Project Name version " << VERSION << "\n";
-        std::cout << "Copyright (C) 2018  Arnav Borborah\n";
-        std::cout << "This program comes with ABSOLUTELY NO WARRANTY; for details see LICENSE.\n";
-        std::cout << "This is free software, and you are welcome to redistribute it\n";
-        std::cout << "under certain conditions; see LICENSE for details.\n\n";   
+        std::cout << "Copyright 2018 Arnav Borborah\n";
+        std::cout << "This program is licensed under the Apache 2.0 License and\n";
+        std::cout << "comes with absolutely NO WARRANTY. For more details, see LICENSE.\n\n";
     }
     else
     {
