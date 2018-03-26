@@ -17,10 +17,10 @@ cmake_minimum_required(VERSION 3.1)
 
 project(Project-Name)
 
-set(VERSION_MAJOR 0)
-set(VERSION_MINOR 1)
-set(VERSION_PATCH 0)
-set(VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
+set(Project-Name_VERSION_MAJOR 0)
+set(Project-Name_VERSION_MINOR 1)
+set(Project-Name_VERSION_PATCH 0)
+set(Project-Name_VERSION "${Project-Name_VERSION_MAJOR}.${Project-Name_VERSION_MINOR}.${Project-Name_VERSION_PATCH}")
 
 set(PROJ_NAME "\"Project Name\"") # PROJECT_NAME is a predefined variable
 set(PROJECT_DESCRIPTION "\"A cross-platform C++14 project template\"")
