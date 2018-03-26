@@ -81,3 +81,4 @@ This work is published from:
   United States</span>.
 </p>
 
+The above basically means that while you do not have to give me attribution for this template, it would be gladly appreciated!
