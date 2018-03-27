@@ -2,6 +2,12 @@ language: cpp
 
 sudo: required
 
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "EnRHAVyzNOTNiw/PFcA/EDiityFknkYbnvAW0ficILhvnz5PVmDsp6PAXajmmNmkwj8V0WVBhfAdh16UlVa1zNuG/Ys4P8wugQqHDrAhaAepc1Yp3Lq5gjnz9Lc1CH2Nwlb28LwjoMqNhToFYV5BeC2f27JNjcOSsCOq5C4oTmDwXLxYuwUU6/YGxhdhS8CSazhnYud7bDKhqJXPagRkP9fVpik8c+b5OQlgNASfPz/9ieSRR9tsrnHkOv5vj/7HrMsMZhiR+wwwiuvg3FYvycuSYczXNTMz7wF1AAgMxm5+97HXEqqR4KqYny/9p21bbr5xpb3P8fG5/KVQKD7FS/k9E2ENIFathnzVEb0Y/rbaTAD439WW8ttNAMmGedDOgKACbVX2WgnKlsul8d+eGEA7cmwoi4xZEh2XASUEIZBOxMpWGGRQe1Bwv8eyAuxF7zDXPopTfqTxaIcTNYGZFTqc/tKBwfpY0ewTkCL3mFqh0U5FzIzIGRP58ph1/oynQ9DrE2lJWG8V1FsF04ruokJaNxCcMD/OfsTbiM1ApQVABr9yKDhaNecVNriwRjBWYMQ/Ao6JWnHZTxg7oOelK9DoeG+HYtJQGrE+zibuaQMhjc7dcqXsXd+b+Dmyix/MraqbKGhxnV8Qh37nngKSN98euFx/6Fs/oj6wOh/MtaE="
+
 matrix:
   include:
     - os: linux
