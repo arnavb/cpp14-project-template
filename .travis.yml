@@ -15,20 +15,20 @@ matrix:
       before_install:
         - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
       addons:
-        coverity_scan:
-          project:
-            name: "arnavb/cpp14-project-template"
-            description: "A cross-platform C++14 project template"
-            notification_email: arnavborborah11@gmail.com
-            build_command_prepend: "mkdir -p build && cd build && cmake -DCMAKE_CXX_COMPILER=g++-5 .."
-            build_command: "make"
-            branch_pattern: coverity_scan
         apt:
           sources:
             - ubuntu-toolchain-r-test
           packages:
             - g++-5
             - cmake
+        coverity_scan:
+          project:
+            name: "arnavb/cpp14-project-template"
+            description: "A cross-platform C++14 project template"
+          notification_email: arnavborborah11@gmail.com
+          build_command_prepend: "mkdir -p build && cd build && cmake -DCMAKE_CXX_COMPILER=g++-5 .."
+          build_command: "make"
+          branch_pattern: coverity_scan
       before_script: echo "Coverity Scan"
       script: echo "Coverity Scan"
     - os: linux
