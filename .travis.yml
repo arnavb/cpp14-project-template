@@ -26,7 +26,7 @@ matrix:
             name: "arnavb/cpp14-project-template"
             description: "A cross-platform C++14 project template"
           notification_email: arnavborborah11@gmail.com
-          build_command_prepend: "cov-configure --comptype gcc --compiler g++-5 --template && cmake -DCMAKE_CXX_COMPILER=g++-5 ."
+          build_command_prepend: "cov-configure --comptype gcc --compiler gcc-5 --template && cmake -DCMAKE_CXX_COMPILER=g++-5 ."
           build_command: "make"
           branch_pattern: coverity_scan
       before_script: echo "Coverity Scan"
