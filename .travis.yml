@@ -23,10 +23,8 @@ matrix:
           packages:
             - g++-5
             - cmake
-      before_script:
-        - echo "Coverity Scan"
-      script:
-        - echo "Coverity Scan"
+      before_script: echo "Coverity Scan"
+      script: echo "Coverity Scan"
     - os: linux
       compiler: gcc
       addons:
