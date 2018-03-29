@@ -64,8 +64,8 @@ Setting up Coverity Scan involves creating another branch `coverity_scan`, which
               name: "username/repository"
               description: "Project description"
             notification_email: your_email@website.com
-            build_command_prepend: "cov-configure --comptype gcc --compiler gcc-5 --template && cmake -DCMAKE_CXX_COMPILER=g++-5 ."
-            build_command: "make"
+            build_command_prepend: "cov-configure --comptype gcc --compiler g++-5 --template && cmake -DCMAKE_CXX_COMPILER=g++-5 ."
+            build_command: "cmake --build ."
             branch_pattern: coverity_scan
         before_script: echo "Coverity Scan"
         script: echo "Coverity Scan"
