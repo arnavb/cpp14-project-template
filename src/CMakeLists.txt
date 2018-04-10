@@ -5,6 +5,7 @@ set(LIBRARY_SOURCES
 
 add_library(Project-Name-lib ${LIBRARY_SOURCES}) # A library
 set_target_properties(Project-Name-lib PROPERTIES PREFIX "") # Remove the lib prefix
+target_include_directories(Project-Name-lib PUBLIC ${CMAKE_SOURCE_DIR}/include ${CMAKE_BINARY_DIR}/include)
 
 add_executable(Project-Name main.cpp) # The main executable
 target_link_libraries(Project-Name Project-Name-lib) # Link our sources to the executable

@@ -38,7 +38,6 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /O2")
 endif(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 
-include_directories(include ${CMAKE_BINARY_DIR}/include)
 add_subdirectory(src)
 
 if (BUILD_TESTS)
