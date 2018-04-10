@@ -50,11 +50,19 @@ In the snippets below, `CONFIGURATION` needs to be a valid [CMake configuration]
     cmake --build --config CONFIGURATION .
     cmake --build --target INSTALL --config CONFIGURATION .
 
+For more details on configuration options and build targets, see the [documentation](https://codedocs.xyz/arnavb/cpp14-project-template/variables_and_targets.html).
+
 ## Running the Tests
 
 In order to run the tests, the option `BUILD_TESTS` needs to be set to `ON` during configuration. Then, invoking the tests is as simple as running:
 
     ctest
+
+## Documentation
+
+The documentation for this project (sample code and usage of this project) is hosted on [codedocs.xyz](https://codedocs.xyz/arnavb/cpp14-project-template/index.html).
+
+Documentation about build targets, CMake options, the directory structure used, and documentation are all available in the link above.
 
 ## License
 
