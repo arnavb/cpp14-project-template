@@ -21,7 +21,7 @@ In order to use this project, all you have to do is follow a few (Ok, more than 
       1. `Project Name` with your project name.
       2. `project-abbr` with an abbreviation of your project name. (Or you could reuse the project name)
       3. In `./CMakeLists.txt`, replace the project version (`0.1.0` in this example) with the version you are using for your project.
-   2. Replace all of the files in `include/project-abbr` with your public include files. If you are building a standalone application without a public interface, then you don't need this directory and can safely delete it. However, you will still need to modify the top level `CMakeLists.txt` to replace the `include_directories(include)` line with `include_directories(src)`.
+   2. Replace all of the files in `include/project-abbr` with your public include files. If you are building a standalone application without a public interface, then you don't need this directory and can safely delete it. However, you will still need to modify `src/CMakeLists.txt` with the line: `target_include_directories(Project-Name-lib PRIVATE ${CMAKE_SOURCE_DIR}/src)`.
    3. Replace all of the files in `src` with all of your `.cpp` files and private includes/implementations.
    4. Replace all of the files in `test` _except_ `test_runner.cpp` with your corresponding test files.
    5. For steps 3 and 4, make sure to modify the corresponding `CMakeLists.txt` to match your new sources.
