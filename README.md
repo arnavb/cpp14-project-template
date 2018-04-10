@@ -31,15 +31,10 @@ In order to use this project, all you have to do is follow a few (Ok, more than 
 
 #### Prerequisites
 The following tools must be preinstalled before using this template:
-- [`CMake`](https://cmake.org/install/): For building the code.
+- [`CMake`](https://cmake.org/install/) (At least v3.1): For building the code.
 - [`Doxygen`](https://www.stack.nl/~dimitri/doxygen/manual/install.html): For generating documentation.
 
-In the snippets below, `CONFIGURATION` can be one of:
-
-- `Debug`
-- `Release`
-- `RelWithDebInfo`
-- `MinSizeRel`
+In the snippets below, `CONFIGURATION` needs to be a valid [CMake configuration](https://cmake.org/cmake/help/v3.11/variable/CMAKE_BUILD_TYPE.html).
 
 #### Linux/OSX
 
