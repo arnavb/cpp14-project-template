@@ -12,7 +12,7 @@ Making cross platform C++ projects is widely known to be a troublesome ambition.
 
 ## Getting Started
 
-### Configuring this Template for _your_ Project
+### Configuring the Template
 In order to use this project, all you have to do is follow a few (Ok, more than a few) simple steps:
 
 1. `git clone` this project into a directory of choice.
