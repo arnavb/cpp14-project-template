@@ -29,6 +29,7 @@ matrix:
           build_command_prepend: "cov-configure --comptype gcc --compiler g++-5 --template && cmake -DCMAKE_CXX_COMPILER=g++-5 ."
           build_command: "cmake --build ."
           branch_pattern: coverity_scan
+      if: branch = coverity_scan
       before_script: echo "Coverity Scan"
       script: echo "Coverity Scan"
     - os: linux
@@ -43,6 +44,7 @@ matrix:
             - valgrind
       env:
         - MATRIX_EVAL="COMPILER=g++-5 && BUILD_TYPE=Debug"
+      if: branch != coverity_scan
     - os: linux
       compiler: gcc
       addons:
@@ -54,16 +56,19 @@ matrix:
             - cmake
       env:
         - MATRIX_EVAL="COMPILER=g++-5 && BUILD_TYPE=Release"
+      if: branch != coverity_scan
     - os: osx
       osx_image: xcode9.2 
       compiler: clang
       env:
         - MATRIX_EVAL="COMPILER=clang++ && BUILD_TYPE=Debug"
+      if: branch != coverity_scan
     - os: osx
       osx_image: xcode9.2 
       compiler: clang
       env:
         - MATRIX_EVAL="COMPILER=clang++ && BUILD_TYPE=Release"
+      if: branch != coverity_scan
 
 before_install:
   - eval "${MATRIX_EVAL}"
@@ -73,7 +78,7 @@ before_script:
   - cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_COMPILER=$COMPILER -DBUILD_TESTS=ON ..
 
 script:
-  - cmake --build . # Build the code
+  - cmake --build . -- -j2 # Build the code
   - |
     if [ "$BUILD_TYPE" == "Debug" ] && [ "$TRAVIS_OS_NAME" == "linux" ]; then # Run tests
       ctest -T memcheck # Check for memory leaks using Valgrind
