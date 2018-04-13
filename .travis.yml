@@ -78,7 +78,7 @@ before_script:
   - cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_COMPILER=$COMPILER -DBUILD_TESTS=ON ..
 
 script:
-  - cmake --build . # Build the code
+  - cmake --build . -- -j2 # Build the code
   - |
     if [ "$BUILD_TYPE" == "Debug" ] && [ "$TRAVIS_OS_NAME" == "linux" ]; then # Run tests
       ctest -T memcheck # Check for memory leaks using Valgrind
