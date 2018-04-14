@@ -10,6 +10,10 @@ target_include_directories(Project-Name-lib PUBLIC ${CMAKE_SOURCE_DIR}/include $
 add_executable(Project-Name main.cpp) # The main executable
 target_link_libraries(Project-Name Project-Name-lib) # Link our sources to the executable
 
+if (ENABLE_COVERAGE)
+    target_compile_options(Project-Name-lib PRIVATE "-g;-O0;--coverage;-fprofile-arcs;-ftest-coverage")
+endif (ENABLE_COVERAGE)
+
 # Install the built library and executable into the appropriate directory
 install(TARGETS Project-Name DESTINATION bin)
 install(TARGETS Project-Name-lib
