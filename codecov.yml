@@ -3,6 +3,6 @@ ignore:
   - "third_party/**/*"
 
 comment:
-  layout: "diff, files"
+  layout: "header, diff, files"
   behavior: default
   require_changes: true
