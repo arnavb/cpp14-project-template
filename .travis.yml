@@ -45,7 +45,6 @@ matrix:
           packages:
             - g++-5
             - cmake
-            - valgrind
       env:
         - MATRIX_EVAL="COMPILER=g++-5 && BUILD_TYPE=Debug"
       if: branch != coverity_scan
@@ -83,10 +82,5 @@ before_script:
 
 script:
   - cmake --build . -- -j2 # Build the code
-  - |
-    if [ "$BUILD_TYPE" == "Debug" ] && [ "$TRAVIS_OS_NAME" == "linux" ]; then # Run tests
-      ctest -T memcheck # Check for memory leaks using Valgrind
-    else
-      ctest
-    fi
+  - ctest --output-on-failure
   - sudo make install # Install the necessary files
