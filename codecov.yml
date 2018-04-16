@@ -1,0 +1,8 @@
+ignore:
+  - "test/"
+  - "third_party/**/*"
+
+comment:
+  layout: "header, diff, files"
+  behavior: default
+  require_changes: true

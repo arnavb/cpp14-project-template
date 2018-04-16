@@ -1,21 +1,30 @@
+#include "doctest.h"
+
 #include <project-abbr/hello_world.hpp>
 
-#include "catch.hpp"
+#include <iostream> // Needed in OSX builds for some weird reason.
+                    // See https://github.com/onqtam/doctest/issues/126#issuecomment-381742003
+#include <string> // This isn't needed but it clarifies intent.
 
 TEST_CASE("class HelloWorld")
 {
     HelloWorld helloWorld;
     
-    SECTION("function hello()")
+    SUBCASE("function hello()")
     {
-        REQUIRE(helloWorld.hello() == "Hello");
+        CHECK(helloWorld.hello() == "Hello");
     }
-    SECTION("function world()")
+    SUBCASE("function world()")
     {
-        REQUIRE(helloWorld.world() == "World");
+        CHECK(helloWorld.world() == "World");
     }
-    SECTION("function generateRandomNumber()")
+    SUBCASE("function generateRandomNumber()")
     {
-        REQUIRE(helloWorld.generateRandomNumber() == 4000);
+        CHECK(helloWorld.generateRandomNumber() == 4000);
+    }
+    SUBCASE("function headerFunction()")
+    {
+        CHECK(helloWorld.headerFunction(6) == 3);
+        // Intentionally incomplete code coverage
     }
 }
