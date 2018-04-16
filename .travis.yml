@@ -47,6 +47,7 @@ matrix:
           packages:
             - g++-5
             - cmake
+            - lcov
       before_script:
         - mkdir -p build && cd build
         - cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=g++-5 -DBUILD_TESTS=ON -DENABLE_COVERAGE=ON ..
