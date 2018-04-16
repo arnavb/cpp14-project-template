@@ -55,6 +55,24 @@ public:
      */
     int generateRandomNumber() const;
     
+    
+    /**
+     * \brief A function defined and 
+     * implemented purely in the header file
+     * 
+     * \param number The original integer
+     * 
+     * \return number divided by 2 using integer division 
+     * if number is even; else return 3
+     */
+     int headerFunction(int number)
+     {
+         if (number % 2 == 0)
+         {
+             return number / 2;
+         }
+         return 3;
+     }
 private:
     std::string hello_;
     std::string world_;

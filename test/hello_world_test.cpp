@@ -22,4 +22,9 @@ TEST_CASE("class HelloWorld")
     {
         CHECK(helloWorld.generateRandomNumber() == 4000);
     }
+    SUBCASE("function headerFunction()")
+    {
+        CHECK(helloWorld.headerFunction(6) == 3);
+        // Intentionally incomplete code coverage
+    }
 }
