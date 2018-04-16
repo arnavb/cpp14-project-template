@@ -1,21 +1,21 @@
 #include <project-abbr/hello_world.hpp>
 
-#include "catch.hpp"
+#include "doctest.h"
 
 TEST_CASE("class HelloWorld")
 {
     HelloWorld helloWorld;
     
-    SECTION("function hello()")
+    SUBCASE("function hello()")
     {
-        REQUIRE(helloWorld.hello() == "Hello");
+        CHECK(helloWorld.hello() == "Hello");
     }
-    SECTION("function world()")
+    SUBCASE("function world()")
     {
-        REQUIRE(helloWorld.world() == "World");
+        CHECK(helloWorld.world() == "World");
     }
-    SECTION("function generateRandomNumber()")
+    SUBCASE("function generateRandomNumber()")
     {
-        REQUIRE(helloWorld.generateRandomNumber() == 4000);
+        CHECK(helloWorld.generateRandomNumber() == 4000);
     }
 }
