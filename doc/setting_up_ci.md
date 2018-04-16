@@ -8,6 +8,7 @@ This project uses the following CI tools:
 - [Travis CI](https://travis-ci.org/)
 - [Appveyor CI](https://www.appveyor.com/)
 - [Codacy](https://www.codacy.com/)
+- [Codecov.io](https://codecov.io/)
 - [Coverity Scan](https://scan.coverity.com/)
 
 In the two CI tools mentioned below, the default behavior is to run the following commands unless specified otherwise:
@@ -42,6 +43,10 @@ If you are fine with these settings, then all you have to do is enable your repo
 \section codacy Codacy
 
 Of all the continuous integration tools, Codacy was the easiest to set up. All you have to do is visit the Codacy website and enable your repository. After running checks using Cppcheck (Beware of false positives), you will get a badge that can be placed in your README.md.
+
+\section codecov Codecov.io
+
+Codecov is a tool that is used for hosting code coverage. The code coverage in this project is generated using a module `cmake/Modules/CodeCoverage.cmake` which uses LCOV/Genhtml to create coverage reports. This report is then uploaded to codecov.io at the end of every successful Travis build.
 
 \section coverity_scan Coverity Scan
 
