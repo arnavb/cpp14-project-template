@@ -2,6 +2,8 @@
 
 #include "doctest.h"
 
+#include <string>
+
 TEST_CASE("class HelloWorld")
 {
     HelloWorld helloWorld;
