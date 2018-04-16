@@ -1,6 +1,6 @@
-#include <project-abbr/hello_world.hpp>
-
 #include "doctest.h"
+
+#include <project-abbr/hello_world.hpp>
 
 #include <iostream>
 #include <string>
