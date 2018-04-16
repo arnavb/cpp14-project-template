@@ -1,3 +1,8 @@
 ignore:
   - "test/"
   - "third_party/**/*"
+
+comment:
+  layout: "diff, files"
+  behavior: default
+  require_changes: true
