@@ -60,6 +60,8 @@ In order to use this project, all you have to do is follow a few (Ok, more than 
     2. In `test/CMakeLists.txt`, change `Project-Name-lib` to match the new name of your library. In addition, modify the `TEST_SOURCES` variable to match your new test files.
 11. Delete the _by default hidden_ `.git` folder and then run `git init` to get a new repository!
 
+For details on how to set up the various continuous integration tools used in this project, check the [documentation](https://codedocs.xyz/arnavb/cpp14-project-template/setting_up_documentation.html).
+
 ### Building the Code
 
 #### Prerequisites
