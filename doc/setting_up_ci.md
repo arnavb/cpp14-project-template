@@ -45,6 +45,7 @@ Of all the continuous integration tools, Codacy was the easiest to set up. All y
 \section codecov Codecov.io
 
 Codecov is a tool that is used for hosting code coverage. The code coverage in this project is generated using a module `cmake/Modules/CodeCoverage.cmake` which uses LCOV/Genhtml to create coverage reports. This report is then uploaded to codecov.io at the end of every successful Travis build.
+In order to get your project on codecov.io, it needs to be enabled on their website and it, along with Travis CI, will take care of all the rest!
 
 \section coverity_scan Coverity Scan
 
