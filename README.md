@@ -17,16 +17,48 @@ Making cross platform C++ projects is widely known to be a troublesome ambition.
 In order to use this project, all you have to do is follow a few (Ok, more than a few) simple steps:
 
 1. `git clone` this project into a directory of choice.
-2. Replace all of the templated files in this project with the corresponding files for _your_ project. In other words:
-   1. Going through all of the files/directories, replace the following variables:
-      1. `Project Name` with your project name.
-      2. `project-abbr` with an abbreviation of your project name. (Or you could reuse the project name)
-      3. In `./CMakeLists.txt`, replace the project version (`0.1.0` in this example) with the version you are using for your project.
-   2. Replace all of the files in `include/project-abbr` with your public include files. If you are building a standalone application without a public interface, then you don't need this directory and can safely delete it. However, you will still need to modify `src/CMakeLists.txt` with the line: `target_include_directories(Project-Name-lib PRIVATE ${CMAKE_SOURCE_DIR}/src)`.
-   3. Replace all of the files in `src` with all of your `.cpp` files and private includes/implementations.
-   4. Replace all of the files in `test` _except_ `test_runner.cpp` with your corresponding test files.
-   5. For steps 3 and 4, make sure to modify the corresponding `CMakeLists.txt` to match your new sources.
-2. Delete the _by default hidden_ `.git` folder and then run `git init` to get a new repository!
+2. Open the file `.codedocs` and replace the variables `PROJECT_NAME`, `PROJECT_NUMBER`, and `PROJECT_NUMBER` with their corresponding values.
+3. Open the file `.travis.yml`, and replace the encrypted Coverity Scan token with the one for your project. In addition, modify the variables in the following section with their corresponding values:
+   ```
+   project:
+     name: "arnavb/cpp14-project-template"
+     description: "A cross-platform C++14 project template"
+   notification_email: arnavborborah11@gmail.com
+   ```
+4. In `./CMakeLists.txt`, modify:
+    1. `Project-Name` to match your project name.
+    2. `Project-Name_VERSION_MAJOR`, `Project-Name_VERSION_MINOR`, and `Project-Name_VERSION_PATCH` to match the versioning of your project. Make sure to modify the names of the variables as well!
+    3. Modify `PROJ_NAME` to be the name of your project.
+    4. Do the same for `PROJECT_DESCRIPTION`.
+    5. If you are building just a library, then remove `${CMAKE_SOURCE_DIR}/src/main.cpp` from `COVERAGE_EXCLUDES`.
+    6. Change:
+       ```
+       install(FILES ${CMAKE_BINARY_DIR}/include/project-abbr/config.hpp DESTINATION include/project-abbr) # Install our configuration file
+       ```
+       to match the new folder name for your project, as described in step 8.
+5. Modify `LICENSE` to match your software license.
+6. Modify this file (`README.md`) to match the details of your project. You may want to keep the build steps, however.
+7. Open the folder `doc`. Then:
+    1. Delete all the markdown pages from this directory and replace them with your own.
+    2. If a main page is needed, it needs to be in a file called `main_page.md`.
+8. Open the folder `include`. Then:
+    1. Change the name of the folder `project-abbr` to something that matches your project (name or abbreviation). Delete all the files _except_ `config.hpp.in` in this directory and replace them with your public include files, if they exist.
+9. Open the folder `src`. Then:
+    1. Remove all of the `.cpp` files in this folder and replace them with your source files and private includes.
+    2. Modify the `LIBRARY_SOURCES` variable to match your project sources. Exclude `main.cpp`, if it exists.
+    3. If you are building a standalone library, then remove the following lines from `src/CMakeLists.txt`:
+       ```
+       add_executable(Project-Name main.cpp) # The main executable
+       target_link_libraries(Project-Name Project-Name-lib) # Link our sources to the executable
+        
+       # Install the built library and executable into the appropriate directory
+       install(TARGETS Project-Name DESTINATION bin)
+       ```
+    4. Change the name `Project-Name` and `Project-Name-lib` to match your project name.
+10. Open the folder `test`. Then:
+    1. Replace all the files in this directory _except_ for `test_runner.cpp` with your doctest unit testing files.
+    2. In `test/CMakeLists.txt`, change `Project-Name-lib` to match the new name of your library. In addition, modify the `TEST_SOURCES` variable to match your new test files.
+11. Delete the _by default hidden_ `.git` folder and then run `git init` to get a new repository!
 
 ### Building the Code
 
