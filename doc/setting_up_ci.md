@@ -25,8 +25,6 @@ Between Travis CI and Appveyor CI, Travis was much easier to set up than the lat
 - OSX Debug (Default Clang with XCode9.2)
 - OSX Release (Default Clang with XCode9.2)
 
-For the debug build on Linux, a memory check is peformed using [Valgrind](http://valgrind.org/).
-
 If you are fine with these settings, then all you have to do is enable your repository on Travis CI and add the badge for _your_ repository to the README.md!
 
 \section appveyor_ci Appveyor CI
