@@ -14,6 +14,9 @@ Making cross platform C++ projects is widely known to be a troublesome ambition.
 ## Getting Started
 
 ### Configuring the Template
+
+(Unfortunately, a setup script isn't currently available but is being worked on in [#3](https://github.com/arnavb/cpp14-project-template/pull/3). Until it is, however, these steps have to be followed manually.)
+
 In order to use this project, all you have to do is follow a few (Ok, more than a few) simple steps:
 
 1. `git clone` this project into a directory of choice.
