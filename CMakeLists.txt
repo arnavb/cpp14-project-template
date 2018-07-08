@@ -20,7 +20,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Options
 option(BUILD_TESTS "Build test executable" OFF)
-option(GEN_DOCS "Generate documentation" OFF)
+option(GEN_DOCS "Generate documentation" ON)
 option(ENABLE_COVERAGE "Enable code coverage" OFF)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
