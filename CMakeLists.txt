@@ -20,7 +20,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Options
 option(BUILD_TESTS "Build test executable" OFF)
-option(GEN_DOCS "Generate documentation" OFF)
+option(GEN_DOCS "Generate documentation" ON)
 option(ENABLE_COVERAGE "Enable code coverage" OFF)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
@@ -52,7 +52,17 @@ else (ENABLE_COVERAGE AND NOT CMAKE_CONFIGURATION_TYPES)
     endif(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 endif (ENABLE_COVERAGE AND NOT CMAKE_CONFIGURATION_TYPES)
 
-add_subdirectory(src)
+set(LIBRARY_SOURCES
+    src/factorial.cpp
+    src/hello_world.cpp
+)
+
+add_library(Project-Name-lib ${LIBRARY_SOURCES}) # A library
+set_target_properties(Project-Name-lib PROPERTIES PREFIX "") # Remove the lib prefix
+target_include_directories(Project-Name-lib PUBLIC ${CMAKE_SOURCE_DIR}/include ${CMAKE_BINARY_DIR}/include)
+
+add_executable(Project-Name src/main.cpp) # The main executable
+target_link_libraries(Project-Name Project-Name-lib) # Link our sources to the executable
 
 if (BUILD_TESTS)
     include(CTest)
@@ -63,6 +73,14 @@ endif (BUILD_TESTS)
 if (GEN_DOCS)
     add_subdirectory(doc)
 endif (GEN_DOCS)
+
+# Install the built library and executable into the appropriate directory
+install(TARGETS Project-Name DESTINATION bin)
+install(TARGETS Project-Name-lib
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin
+)
 
 # Install the project header files into the appropriate directory
 install(DIRECTORY include/ DESTINATION include PATTERN "config.hpp.in" EXCLUDE) # Install our main header files

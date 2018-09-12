@@ -32,7 +32,7 @@ matrix:
             name: "arnavb/cpp14-project-template"
             description: "A cross-platform C++14 project template"
           notification_email: arnavborborah11@gmail.com
-          build_command_prepend: "cov-configure --comptype gcc --compiler g++-5 --template && cmake -DCMAKE_CXX_COMPILER=g++-5 ."
+          build_command_prepend: "cov-configure --comptype gcc --compiler g++-5 --template && cmake -DCMAKE_CXX_COMPILER=g++-5 -DGEN_DOCS=OFF ."
           build_command: "cmake --build ."
           branch_pattern: coverity_scan
       if: branch = coverity_scan
@@ -51,7 +51,7 @@ matrix:
             - lcov
       before_script:
         - mkdir -p build && cd build
-        - cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=g++-5 -DBUILD_TESTS=ON -DENABLE_COVERAGE=ON ..
+        - cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=g++-5 -DBUILD_TESTS=ON -DENABLE_COVERAGE=ON -DGEN_DOCS=OFF ..
       script:
         - cmake --build . -- -j2
         - cmake --build . --target coverage
@@ -91,7 +91,7 @@ before_install:
 
 before_script:
   - mkdir -p build && cd build
-  - cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_COMPILER=$COMPILER -DBUILD_TESTS=ON ..
+  - cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_COMPILER=$COMPILER -DBUILD_TESTS=ON -DGEN_DOCS=OFF ..
 
 script:
   - cmake --build . -- -j2 # Build the code

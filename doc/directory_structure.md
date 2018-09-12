@@ -19,7 +19,6 @@ Ignoring all extraneous files, this is the structure that this project uses:
     │       ├── factorial.hpp
     │       └── hello_world.hpp
     ├── src/
-    │   ├── CMakeLists.txt
     │   ├── factorial.cpp
     │   ├── hello_world.cpp
     │   └── main.cpp
